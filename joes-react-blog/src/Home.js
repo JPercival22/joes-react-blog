@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BlogList from './BlockList';
 
 const Home = () => {
@@ -10,9 +10,26 @@ const Home = () => {
         { title: "UX Design Top Tips", body: "lorem impsum ...", author: "Joe", id: 3 }
     ]);
 
+    const [name, setName] = useState("Joe");
+    const handleDelete = (id) => {
+        // this doesn't Mutate(change) the original Blog state AnimationPlaybackEvent, it just updates it with new array on user interaction (click delete button etc)
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs);
+    }
+
+    useEffect(() => {
+        // useEffect will always run on every iteration (button click or refresh)
+        // By calling the name variable as ana argument inside of the function you can
+        // specify you want it runs 
+        console.log("use effect ran");
+        console.log(name);
+    }, [name]);
+
     return (
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs!"/>
+            <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete} />
+            <button onClick={() => setName("J.Percival")}>Change Name</button>
+            <p>{ name }</p>        
         </div>
     );
 }
