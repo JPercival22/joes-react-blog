@@ -1,0 +1,16 @@
+{
+    "blogs": [
+        {
+            "title": "My New Website",
+            "body" : "My new website aims to aid a local charity in their quest to help the most vulnerable of society and the homeless",
+            "author": "Joe",
+            "id":1
+        },
+        {
+            "title": "UX Design Top Tips",
+            "body" : "We have all got to start somewhere! Whether it is a change in career, up skilling or a hobby, here are some Top Tips",
+            "author": "Joe",
+            "id":1
+        }
+    ]
+}
